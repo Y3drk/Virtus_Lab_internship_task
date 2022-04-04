@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Receipt</title>
+</head>
+<body>
+<h1>Here is your receipt!</h1>
+<ul>
+  <li th:each="product : ${products}">
+    <div>
+      <p class="name">name:<th:block th:text="${product.name()}">[product.name()]</th:block></p>
+      <p class="type">type:<th:block th:text="${product.type()}">[product.type()]</th:block></p>
+      <p class="price">price:<th:block th:text="${product.price()}">[product.price()]</th:block></p>
+    </div>
+  </li>
+</ul>
+<p>Original total price of products:<th:block th:text="${original_total_price}">[original_total_price]</th:block></p>
+<p>Final total price of products after applying discounts:<th:block th:text="${final_total_price}">[final_total_price]</th:block> </p>
+<button th:onclick="|window.location.href='/products'|">Return to the products page</button>
+</body>
+</html>

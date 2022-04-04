@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Start</title>
+</head>
+<body>
+<h1>Virtus Lab Shop</h1>
+<div>
+  <p>Welcome to <th:block th:text="${start}">[start]</th:block>, where you can buy wide variety of products!</p>
+  <button th:onclick="|window.location.href='/products'|">Proceed!</button>
+</div>
+</body>
+</html>

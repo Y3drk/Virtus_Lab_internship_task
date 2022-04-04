@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Our products</title>
+</head>
+<body>
+<h1>Our products</h1>
+    <ul>
+        <li th:each="product : ${products}">
+            <div>
+                <p class="name">name:<th:block th:text="${product.name()}">[product.name()]</th:block></p>
+                <p class="type">type:<th:block th:text="${product.type()}">[product.type()]</th:block></p>
+                <p class="price">price:<th:block th:text="${product.price()}">[product.price()]</th:block></p>
+                <form action="#" th:action="@{'/products'}" th:method="post">
+<!--                    <input type="hidden" name="paramName" th:attr="value = ${product.name()}"/>-->
+                    <button type="submit" class="btn" name="paramName"
+                        th:attr="value = ${product.name()}+'add'">
+                        Add to basket!
+                    </button>
+                    <button type="submit" class="btn" name="paramName"
+                            th:attr="value = ${product.name()}+'del'"
+                            th:if="${cart.basket.hasProduct(product)}">
+                        Delete from basket!
+                    </button>
+
+                </form>
+            </div>
+        </li>
+    </ul>
+<button th:onclick="|window.location.href='/receipt'|">Sum Up and get receipt!</button>
+</body>
+</html>

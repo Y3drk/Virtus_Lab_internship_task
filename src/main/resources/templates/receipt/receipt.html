@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Your Receipt</title>
+  <link th:href="@{/styles/receipt.css}" rel="stylesheet" />
 </head>
 <body>
+<main>
 <h1>Here is your receipt!</h1>
 <ul>
   <li th:each="product : ${products}">
@@ -17,6 +19,7 @@
 </ul>
 <p>Original total price of products:<th:block th:text="${original_total_price}">[original_total_price]</th:block></p>
 <p>Final total price of products after applying discounts:<th:block th:text="${final_total_price}">[final_total_price]</th:block> </p>
-<button th:onclick="|window.location.href='/products'|">Return to the products page</button>
+<button class="change" th:onclick="|window.location.href='/products'|">Return to the products page</button>
+</main>
 </body>
 </html>
